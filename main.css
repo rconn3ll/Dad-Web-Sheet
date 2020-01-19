@@ -32,7 +32,7 @@ tr {
 
 table td:nth-child(odd) {
     text-align:right;
-    width:80px;
+    width:65px;
 }
 
 #t1 td:nth-child(even) {
