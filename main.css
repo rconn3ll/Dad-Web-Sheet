@@ -9,10 +9,9 @@ body {
     color: #545454;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 16px;
-    line-height: 1.5;
     margin: 0 auto;
     max-width: 800px;
-    padding: 2em 2em 4em;
+    padding-top: 4em;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -35,23 +34,26 @@ tr {
 
 table td:nth-child(odd) {
     text-align:right;
+    width:80px;
 }
 
 #t1 td:nth-child(even) {
     text-align:left;
+    width:175px;
 }
 
 #t2 tr:nth-child(odd) td:nth-child(even) {
     text-align:left;
+    width:175px;
 }
 
 #t2 tr:nth-child(even) td:nth-child(even) {
-    text-align:left;
-    padding-left:85px;
+    text-align:center;
+    width:175px;
 }
 
-#t2 {
-    line-height:1;
+table {
+    margin:auto;
 }
 
 #t1 input[type=text] {
