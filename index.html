@@ -8,26 +8,58 @@
         <link rel="stylesheet" href="main.css">
     </head>
     <body>
-    
-    <table id="t1">    
-        <tr><td>Field 1: </td><td><input type="text" placeholder="Text Field" name="field1"></td> <td>Field 6: </td><td><input type="text" placeholder="Currency Field" name="field6"></td></tr>
-        <tr><td>Field 2: </td><td><input type="text" placeholder="Text Field" name="field2"></td> <td>Field 7: </td><td><input type="text" placeholder="Number Field" name="field7"></td></tr>
-        <tr><td>Field 3: </td><td><input type="text" placeholder="Text Field" name="field3"></td> <td>Field 8: </td><td><input type="text" placeholder="Currency Field" name="field8"></td></tr>
-        <tr><td>Field 4: </td><td><input type="text" placeholder="Date Field" name="field4"></td> <td>Field 9: </td><td><input type="text" placeholder="Currency Field" name="field9"></td></tr>
-        <tr><td>Field 5: </td><td><input type="text" placeholder="Text Field" name="field5"></td> <td>Field 10: </td><td><input type="text" placeholder="Number Field" name="field10"></td></tr>
-    </table>
+    <div id="container">
+        <table id="t1">    
+            <tr><td>Field 1: </td><td><input type="text" placeholder="Text Field" name="field1"></td> <td>Field 6: </td><td><input type="text" placeholder="Currency Field" name="field6" onChange="currencyConvert('field6'); field6Function();"></td></tr>
+            <tr><td>Field 2: </td><td><input type="text" placeholder="Text Field" name="field2"></td> <td>Field 7: </td><td><input type="text" placeholder="Number Field" name="field7"></td></tr>
+            <tr><td>Field 3: </td><td><input type="text" placeholder="Text Field" name="field3"></td> <td>Field 8: </td><td><input type="text" placeholder="Currency Field" name="field8" onChange="currencyConvert('field8')"></td></tr>
+            <tr><td>Field 4: </td><td><input type="date" placeholder="Date Field" name="field4"></td> <td>Field 9: </td><td><input type="text" placeholder="Currency Field" name="field9" onChange="currencyConvert('field9')"></td></tr>
+            <tr><td>Field 5: </td><td><input type="text" placeholder="Text Field" name="field5"></td> <td>Field 10: </td><td><select name="field10" onChange="field10Function()"></select></td></tr>
+        </table>
         <br>
-    <table id="t2">
-        <tr><td>Field 11: </td><td><input type="text" placeholder="Currency Field" name="field11" onInput="multiplyFields()"></td></tr>
-        <tr><td></td><td><strong>x</strong></td></tr>
-        <tr><td>Field 12: </td><td><input type="text" placeholder="Number Field" name="field12" onInput="multiplyFields()"></td></tr>
-        <tr><td></td><td><strong>x</strong></td></tr>
-        <tr><td>Field 13: </td><td><input type="text" placeholder="Number Field" name="field13" onInput="multiplyFields()"></td></tr>
-        <tr><td></td><td><strong>=</strong></td></tr>
-        <tr><td>Field 14: </td><td><input type="text" placeholder="Currency Field" name="field14" onInput="multiplyFields()"></td></tr>
-    </table>
+        <div id = "middleInstructions">
+        <!-- *Enter Instructions here* -->
+
+The following is just made up words designed to look like a real paragraph. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Magna fringilla urna porttitor rhoncus dolor purus non. Non blandit massa enim nec dui nunc mattis enim. Arcu non odio euismod lacinia at quis. Id interdum velit laoreet id donec ultrices. Enim facilisis gravida neque convallis a. Tellus in hac habitasse platea dictumst. Rhoncus dolor purus non enim praesent elementum facilisis leo vel. Mi proin sed libero enim. Ultrices in iaculis nunc sed augue lacus viverra. 
+            
+        <!-- ///////////////////////// -->
+        </div>
+        <br>
+        <div id="btn">
+            
+            The following is just made up words designed to look like a real paragraph. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad 
+            
+            <br><br>
+            <button type="button" onclick="multiplyFields()">Calculate</button>
+            <button type="button" onclick="clearFields()">Clear</button>
+        </div>
+        <table id="t2">
+            <tr><td>Field 11: </td><td><input type="text" placeholder="Currency Field" name="field11"></td></tr>
+            <tr><td></td><td><strong>x</strong></td></tr>
+            <tr><td>Field 12: </td><td><input type="text" placeholder="Number Field" name="field12"></td></tr>
+            <tr><td></td><td><strong>x</strong></td></tr>
+            <tr><td>Field 13: </td><td><input type="text" placeholder="Number Field" name="field13"></td></tr>
+            <tr><td></td><td><strong>=</strong></td></tr>
+            <tr><td>Field 14: </td><td><input type="text" placeholder="Currency Field" name="field14"></td></tr>
+        </table>
+    </div>
         
         <script>
+            window.onload = function(){
+                var dropdown = document.getElementsByName('field10')[0];
+                var contents = "<option>(Please Select)</option>";
+                for (var i = 0; i <= 1.01; i += .01) {
+                    contents += "<option>" + i.toFixed(2) + "</option>";
+                }
+                dropdown.innerHTML = contents;
+            }
+            
+            function currencyConvert(field) {
+                var f = document.getElementsByName(field)[0]; 
+                f.value = f.value.replace(/[^\d.-]/g, '');
+                f.value = '$' + parseFloat(f.value).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
+            }
+            
             function multiplyFields(){
                 var f11 = document.getElementsByName("field11")[0];
                 var f12 = document.getElementsByName("field12")[0];
@@ -36,8 +68,40 @@
                 f11num = f11.value.replace(/[^\d.-]/g, '');
                 f12num = f12.value.replace(/[^\d.-]/g, '');
                 f13num = f13.value.replace(/[^\d.-]/g, '');             
-                f14.value = '$' + f11num * f12num * f13num;
+                f14.value = f11num * f12num * f13num;
+                f14.value = '$' + parseFloat(f14.value).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
             }
+            
+            function clearFields(){
+                var elements = document.getElementsByTagName("input");
+                for (var ii=0; ii < elements.length; ii++) {
+                    if (elements[ii].type == "text" || elements[ii].type == "date") {
+                        elements[ii].value = "";
+                    } 
+                }
+                var elements = document.getElementsByTagName("Select");
+                for (var ii=0; ii < elements.length; ii++) {
+                    elements[ii].selectedIndex = 0;
+                }
+            }
+            
+            function field6Function(){
+                var f6 = document.getElementsByName("field6")[0];
+                var f11 = document.getElementsByName("field11")[0];
+                f11.value = f6.value.replace(/[^\d.-]/g, '') * .1;
+                currencyConvert("field11");
+            }
+            
+            function field10Function(){
+                var f10 = document.getElementsByName("field10")[0];
+                var f12 = document.getElementsByName("field12")[0];
+                if (f10.value == "(Please Select)") {
+                    f12.value = "";
+                } else {
+                    f12.value = f10.value;
+                }
+            }
+            
         </script>
     </body>
 </html>
