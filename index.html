@@ -9,41 +9,57 @@
     </head>
     <body>
     <div id="container">
+<!-- *To change the names infront of the feilds, replace the text directly between the <td> and </td> 
+that says "Field 1:, Field 2:, etc... -->
+        
         <table id="t1">    
-            <tr><td>Field 1: </td><td><input type="text" placeholder="Text Field" name="field1"></td> <td>Field 6: </td><td><input type="text" placeholder="Currency Field" name="field6" onChange="currencyConvert('field6'); field6Function();"></td></tr>
-            <tr><td>Field 2: </td><td><input type="text" placeholder="Text Field" name="field2"></td> <td>Field 7: </td><td><input type="text" placeholder="Number Field" name="field7"></td></tr>
-            <tr><td>Field 3: </td><td><input type="text" placeholder="Text Field" name="field3"></td> <td>Field 8: </td><td><input type="text" placeholder="Currency Field" name="field8" onChange="currencyConvert('field8')"></td></tr>
-            <tr><td>Field 4: </td><td><input type="date" placeholder="Date Field" name="field4"></td> <td>Field 9: </td><td><input type="text" placeholder="Currency Field" name="field9" onChange="currencyConvert('field9')"></td></tr>
-            <tr><td>Field 5: </td><td><input type="text" placeholder="Text Field" name="field5"></td> <td>Field 10: </td><td><select name="field10" onChange="field10Function()"></select></td></tr>
+            <tr><td>Field 1: </td><td><input type="text" name="field1"></td> 
+                <td>Field 6: </td><td><input type="text" name="field6" onChange="currencyConvert('field6'); field6Function();"></td></tr>
+            <tr><td>Field 2: </td><td><input type="text" name="field2"></td> 
+                <td>Field 7: </td><td><input type="text" name="field7"></td></tr>
+            <tr><td>Field 3: </td><td><input type="text" name="field3"></td> 
+                <td>Field 8: </td><td><input type="text" name="field8" onChange="currencyConvert('field8')"></td></tr>
+            <tr><td>Field 4: </td><td><input type="date" name="field4"></td> 
+                <td>Field 9: </td><td><input type="text" name="field9" onChange="currencyConvert('field9')"></td></tr>
+            <tr><td>Field 5: </td><td><input type="text" name="field5"></td> 
+                <td>Field 10: </td><td><select name="field10" onChange="field10Function()"></select></td></tr>
         </table>
+        
         <br>
+        
         <div id = "middleInstructions">
-        <!-- *Enter Instructions here* -->
+<!-- *Enter Instructions here* -->
 
-The following is just made up words designed to look like a real paragraph. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Magna fringilla urna porttitor rhoncus dolor purus non. Non blandit massa enim nec dui nunc mattis enim. Arcu non odio euismod lacinia at quis. Id interdum velit laoreet id donec ultrices. Enim facilisis gravida neque convallis a. Tellus in hac habitasse platea dictumst. Rhoncus dolor purus non enim praesent elementum facilisis leo vel. Mi proin sed libero enim. Ultrices in iaculis nunc sed augue lacus viverra. 
+            This is the paragraph in the middle of the page. Replace this text to add your own information.  
             
-        <!-- ///////////////////////// -->
+<!-- ///////////////////////// -->
         </div>
+        
         <br>
+        
         <div id="btn">
+<!-- *Enter Instructions here* -->
             
-            The following is just made up words designed to look like a real paragraph. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad 
+            This is the paragrah right above the buttons. Replace this text to add your own information. 
             
+<!-- ///////////////////////// -->
             <br><br>
             <button type="button" onclick="multiplyFields()">Calculate</button>
             <button type="button" onclick="clearFields()">Clear</button>
         </div>
-        <table id="t2">
-            <tr><td>Field 11: </td><td><input type="text" placeholder="Currency Field" name="field11"></td></tr>
-            <tr><td></td><td><strong>x</strong></td></tr>
-            <tr><td>Field 12: </td><td><input type="text" placeholder="Number Field" name="field12"></td></tr>
-            <tr><td></td><td><strong>x</strong></td></tr>
-            <tr><td>Field 13: </td><td><input type="text" placeholder="Number Field" name="field13"></td></tr>
-            <tr><td></td><td><strong>=</strong></td></tr>
-            <tr><td>Field 14: </td><td><input type="text" placeholder="Currency Field" name="field14"></td></tr>
-        </table>
-    </div>
         
+        <table id="t2">
+            <tr><td>Field 11: </td><td><input type="text" name="field11"></td></tr>
+            <tr><td></td><td><strong>x</strong></td></tr>
+            <tr><td>Field 12: </td><td><input type="text" name="field12"></td></tr>
+            <tr><td></td><td><strong>x</strong></td></tr>
+            <tr><td>Field 13: </td><td><input type="text" name="field13"></td></tr>
+            <tr><td></td><td><strong>=</strong></td></tr>
+            <tr><td>Field 14: </td><td><input type="text" name="field14"></td></tr>
+        </table>
+        
+    </div>
+<!-- *Bellow is the Javascript* -->
         <script>
             window.onload = function(){
                 var dropdown = document.getElementsByName('field10')[0];
